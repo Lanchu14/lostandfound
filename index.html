@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniFind - Lost & Found</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>📱 UniFind</h1>
+    <p>Lost something on campus? Let's help you find it.</p>
+  </header>
+
+  <div class="container">
+
+    <h2>🔍 Search for an Item</h2>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="e.g. wallet, ID card..." onkeyup="filterItems()" />
+    </div>
+
+    <div id="searchResults" class="search-results" style="display: none;"></div>
+
+    <h2>📌 Post Lost/Found Item</h2>
+    <form id="itemForm" onsubmit="addItem(event)">
+      <input type="text" id="title" placeholder="Item Title (e.g. Lost USB)" required />
+      <textarea id="description" placeholder="Describe the item..." required></textarea>
+      <select id="type">
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+      </select>
+      <input type="text" id="location" placeholder="Last seen location" required />
+      <input type="text" id="owner" placeholder="Your name (for contact)" required />
+      <button type="submit">Post Item</button>
+    </form>
+
+    <h2>📋 Latest Posts</h2>
+    <div id="itemsList">
+      <!-- Cards will be inserted here -->
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <h3>Contact Owner</h3>
+      <p id="contactOwnerName">Owner: </p>
+      <p>📧 Email: example@university.edu</p>
+      <p>📞 Phone: +91-XXXXXXX</p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
